@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css2?family=Sigmar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: "Montserrat", serif;
+   font-optical-sizing: auto;
+   font-weight: 800;
+   font-style: normal;
+}
+
+body {
+   background: #f5f5f5;
+   padding: 20px;
+}
+
+
+#component {
+   width: 800px;
+   margin: 0 auto;
+   background: white;
+   border-radius: 10px;
+   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+   padding: 20px;
+}
+
+
+.header {
+   text-align: center;
+   padding: 20px;
+   margin-bottom: 30px;
+}
+
+.header h1 {
+   font-family: "Sigmar", serif;
+   font-size: 3.5rem;
+   font-weight: 700;
+   color: #6B74D6; 
+   margin: 0;
+   padding: 0;
+   display: inline-flex;
+   align-items: center;
+}
+.header h1::after {
+   content: "⚡";
+   font-size: 2.5rem;
+   transform: rotate(15deg);
+   display: inline-block;
+   margin-left: 5px;
+}
+
+.header p {
+   font-family: "Grechen Fuemen", serif;
+   font-size: 1.2rem;
+   color: #333;
+   margin: 0;
+    padding: 0;
+    position: relative;
+    left: 15%;
+    transform: translateX(-1%);
+    display: inline-block;
+    font-style: italic;
+}
+.header p .clock {
+   display: inline-block;
+   transform: scale(1.2);
+   margin: 0 5px;
+}
+
+
+#task-control {
+   width: 700px;
+   display: flex;
+   gap: 10px;
+   margin-bottom: 20px;
+   justify-content: center;
+}
+
+#task-input {
+   
+   padding: 10px;
+   border: 1px solid #ddd;
+   border-radius: 5px;
+   font-size: 16px;
+}
+
+#task-control button {
+   padding: 10px 15px;
+   background: #4CAF50;
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background 0.3s;
+}
+
+#task-control button:hover {
+   background: #45a049;
+}
+
+
+.task-list {
+   list-style: none;
+}
+
+.task-item {
+   display: flex;
+   align-items: center;
+   padding: 15px;
+   background: #f9f9f9;
+   margin-bottom: 10px;
+   border-radius: 5px;
+   animation: slideIn 0.3s ease;
+}
+
+.task-item button {
+   border: none;
+   background: none;
+   cursor: pointer;
+   padding: 5px;
+   font-size: 20px;
+   transition: transform 0.2s;
+}
+
+.task-item button:hover {
+   transform: scale(1.1);
+}
+
+.task-item span {
+   flex: 1;
+   margin: 0 15px;
+}
+
+
+.modal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0,0,0,0.5);
+   display: none;
+   justify-content: center;
+   align-items: center;
+   z-index: 1001;
+}
+
+.modal.active {
+   display: flex;
+}
+
+.modal-content {
+   background: white;
+   padding: 20px;
+   border-radius: 5px;
+   text-align: center;
+}
+
+.modal-buttons {
+   margin-top: 20px;
+   display: flex;
+   justify-content: center;
+   gap: 10px;
+}
+
+.modal-buttons button {
+   padding: 8px 20px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+
+@keyframes slideIn {
+   from {
+       opacity: 0;
+       transform: translateY(-10px);
+   }
+   to {
+       opacity: 1;
+       transform: translateY(0);
+   }
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+   #task-control {
+       flex-direction: column;
+   }
+
+   .task-item {
+       flex-wrap: wrap;
+   }
+
+   .task-item span {
+       width: 100%;
+       margin: 10px 0;
+   }
+}
+
+@media (max-width: 600px) {
+   .header h1 {
+       font-size: 2.5rem;
+   }
+   
+   .header h1::after {
+       font-size: 2rem;
+   }
+   
+   .header p {
+      font-size: 0.9rem;
+      transform: translateX(0);
+      text-align: center;
+      left: 0;
+   }
+}
+
+@media (max-width: 480px) {
+   .header h1 {
+       font-size: 2rem;
+   }
+   
+   .header h1::after {
+       font-size: 1.5rem;
+   }
+
+   .header p {
+      transform: translateX(0);
+      left: 0;
+      width: 100%;
+      text-align: center;
+  }
+}
